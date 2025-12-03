@@ -11,14 +11,28 @@ ___
 ## Installation
 Clone the repository and install dependencies:
 
-```git clone https://github.com/is-hiro/history-timeline.git```
+```bash
+git clone https://github.com/is-hiro/history-timeline.git
+```
 
-```cd history-timeline```
+```bash
+cd history-timeline
+```
 #### npm 
-```npm install```
+```bash
+npm install
+```
+```bash
+npm run start
+```
 
-#### yarn
-```yarn```
+#### or yarn
+```bash
+yarn
+```
+```bash
+yarn start
+```
 
 ---
 
