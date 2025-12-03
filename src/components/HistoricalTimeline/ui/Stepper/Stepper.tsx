@@ -1,50 +1,40 @@
 import {Timeline} from '../../types'
 import styles from './Stepper.module.scss'
 import {timelines} from '../../data/timelines'
-import {FC, useState, useEffect} from 'react'
 import {
   MdKeyboardArrowLeft as MdKeyboardArrowLeftRaw,
   MdKeyboardArrowRight as MdKeyboardArrowRightRaw,
 } from 'react-icons/md'
 import clsx from 'clsx'
+import {FC, useMemo} from 'react'
 
 const MdKeyboardArrowLeft: FC = MdKeyboardArrowLeftRaw as unknown as FC
 const MdKeyboardArrowRight: FC = MdKeyboardArrowRightRaw as unknown as FC
 
 type Props = {
-  timeline?: Timeline;
+  timeline: Timeline;
   setTimeline: (timeline: Timeline) => void;
 };
 
-export const Stepper = ({timeline, setTimeline}: Props) => {
-  const [currentStep, setCurrentStep] = useState<number>(0)
+export const Stepper: FC<Props> = ({timeline, setTimeline}) => {
+  const currentStep = useMemo(
+      () => timelines.findIndex((t) => t.id === timeline.id),
+      [timeline]
+  )
 
-  useEffect(() => {
-    if (!timeline) return
-    const idx = timelines.findIndex((t) => t.id === timeline.id)
-    if (idx !== -1) {
-      setCurrentStep(idx)
-    }
-  }, [timeline])
+  const isFirst = currentStep <= 0
+  const isLast = currentStep >= timelines.length - 1
 
   const handleNext = () => {
-    setCurrentStep((prev) => {
-      const next = Math.min(prev + 1, timelines.length - 1)
-      if (next !== prev) {
-        setTimeline(timelines[next])
-      }
-      return next
-    })
+    if (isLast) return
+    const next = timelines[currentStep + 1]
+    setTimeline(next)
   }
 
   const handlePrev = () => {
-    setCurrentStep((prev) => {
-      const next = Math.max(prev - 1, 0)
-      if (next !== prev) {
-        setTimeline(timelines[next])
-      }
-      return next
-    })
+    if (isFirst) return
+    const prev = timelines[currentStep - 1]
+    setTimeline(prev)
   }
 
   return (
@@ -53,24 +43,27 @@ export const Stepper = ({timeline, setTimeline}: Props) => {
           <p>
             {currentStep + 1}/{timelines.length}
           </p>
+
           <div className={styles.actions}>
-            <button onClick={handlePrev} disabled={currentStep === 0}>
+            <button onClick={handlePrev} disabled={isFirst}>
               <MdKeyboardArrowLeft/>
             </button>
-            <button
-                onClick={handleNext}
-                disabled={currentStep === timelines.length - 1}
-            >
+            <button onClick={handleNext} disabled={isLast}>
               <MdKeyboardArrowRight/>
             </button>
           </div>
         </div>
 
         <div className={styles.circles}>
-          {Array.from(timelines).map((t, i) => (
-              <div className={clsx(styles.circle, {[styles.active]: t.id === timeline?.id})}>
-
-              </div>))}
+          {timelines.map((t) => (
+              <div
+                  key={t.id}
+                  onClick={() => setTimeline(t)}
+                  className={clsx(styles.circle, {
+                    [styles.active]: t.id === timeline.id,
+                  })}
+              />
+          ))}
         </div>
       </div>
   )

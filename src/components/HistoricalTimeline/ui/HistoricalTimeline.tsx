@@ -11,12 +11,10 @@ import {Stepper} from './Stepper/Stepper'
 import {isMobile} from 'react-device-detect'
 
 export const HistoricalTimeline = () => {
-  const [currentTimeline, setCurrentTimeline] = useState<Timeline>()
+  const [currentTimeline, setCurrentTimeline] = useState<Timeline>(timelines[0])
   const [currentEvents, setCurrentEvents] = useState<IHistoricalEvent[]>([])
+
   useEffect(() => {
-    if (!currentTimeline) {
-      setCurrentTimeline(timelines[0])
-    }
     const filtered = eventsByTimeline({events, timeline: currentTimeline})
     setCurrentEvents(filtered)
   }, [currentTimeline])
@@ -24,12 +22,17 @@ export const HistoricalTimeline = () => {
   const setTimeLine = (timeLine: Timeline) => {
     setCurrentTimeline(timeLine)
   }
+
   return (
       <div className={styles.historicalTimeline}>
         <div className={styles.title}>
           <h1>Historical dates</h1>
         </div>
-        {!isMobile && <TimelineCircle timeline={currentTimeline} setTimeLine={setTimeLine}/>}
+
+        {!isMobile && (
+            <TimelineCircle timeline={currentTimeline} setTimeLine={setTimeLine}/>
+        )}
+
         <TimelineDates timeline={currentTimeline}/>
         <Stepper timeline={currentTimeline} setTimeline={setTimeLine}/>
         <SwipeLine events={currentEvents}/>
