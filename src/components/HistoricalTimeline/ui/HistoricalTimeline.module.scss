@@ -1,0 +1,61 @@
+@use '/src/app/styles/variables.scss' as *;
+
+.historicalTimeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  gap: 100px;
+  border: 1px solid rgba($dark-blue, 0.2);
+  height: 100vh;
+  max-width: 1480px;
+  padding: 50px;
+  margin: auto;
+  background:
+          linear-gradient(
+                          to right,
+                          rgba(66, 86, 122, 0.2) 1px,
+                          transparent 1px
+          ),
+          linear-gradient(
+                          to bottom,
+                          rgba(66, 86, 122, 0.2) 1px,
+                          transparent 1px
+          );
+  background-position: 50% 0, 0 50%;
+  background-size: 1px 100%, 100% 1px;
+  background-repeat: no-repeat;
+
+  .title{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    padding-left: 50px;
+    border-left: 5px solid;
+    border-image: $gradient 1;
+    height: 120px;
+    h1{
+      font-size: 56px;
+      color: $dark-blue;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .historicalTimeline{
+    background: none;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    .title{
+      border: none;
+      padding-left: 20px;
+      h1{
+        font-size: 20px;
+      }
+    }
+  }
+}

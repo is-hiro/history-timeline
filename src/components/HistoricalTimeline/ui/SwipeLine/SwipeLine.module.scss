@@ -1,0 +1,60 @@
+@use '/src/app/styles/variables.scss' as *;
+
+.SwipeLine {
+  width: 100%;
+  margin-top: auto;
+  position: relative;
+  .slide{
+    display: flex;
+    align-items: start;
+    min-height: 130px;
+  }
+}
+
+.navButton{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: $dark-blue;
+  box-shadow: 0 0 15px rgba($blue, .2);
+  background: #fff;
+  margin: 20px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  svg{
+    font-size: 20px;
+  }
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  &.prev{
+    left: 0;
+  }
+  &.next{
+    right: 0;
+  }
+  &:disabled{
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .SwipeLine{
+    width: 100%;
+    margin-bottom: 80px;
+    .slide{
+      min-height: 150px;
+      p{
+        font-size: 1em;
+      }
+    }
+  }
+  .navButton{
+    display: none;
+  }
+}

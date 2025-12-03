@@ -1,0 +1,9 @@
+{
+  "short_name": "Timeline",
+  "name": "Historical Timeline",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "landscape",
+  "theme_color": "#ffffff",
+  "background_color": "#f5f6fb"
+}

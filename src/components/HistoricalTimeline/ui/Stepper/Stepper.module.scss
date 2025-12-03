@@ -1,0 +1,77 @@
+@use '/src/app/styles/variables' as *;
+
+.Stepper{
+  position: absolute;
+  bottom: 200px;
+  left: 50px;
+  .arrows{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    p{
+      color: $dark-blue;
+    }
+
+    .actions{
+      display: flex;
+      gap: 20px;
+      button{
+        border: 1px solid rgba($dark-blue, .5);
+        width: 56px;
+        height: 56px;
+        background: #fff;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        outline: none;
+        cursor: pointer;
+        transition: opacity ease-in-out .3s;
+        svg{
+          font-size: 2em;
+          color: $dark-blue;
+        }
+        &:disabled{
+          opacity: .2;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .Stepper{
+    display: flex;
+    align-items: center;
+    bottom: 20px;
+    left: 20px;
+    flex-direction: row;
+    .arrows{
+      gap: 10px;
+      .actions{
+        gap: 9px;
+        button{
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+
+    .circles{
+      display: flex;
+      margin-left: 50%;
+      gap: 10px;
+      .circle{
+        border-radius: 50%;
+        width: 6px;
+        height: 6px;
+        background: rgba($dark-blue, .5);
+        transition: background .3s ease-in-out;
+        &.active{
+          background: $dark-blue;
+        }
+      }
+    }
+  }
+}

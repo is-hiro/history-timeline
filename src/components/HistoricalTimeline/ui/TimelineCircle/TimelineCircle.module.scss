@@ -1,0 +1,78 @@
+@use '/src/app/styles/variables' as *;
+
+%timeButton-expanded {
+  width: 56px;
+  height: 56px;
+  background: #fff;
+
+  > p {
+    opacity: 1;
+  }
+}
+
+.timelineCircle {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid rgba($dark-blue, 0.2);
+
+  .timeline {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .timeButton {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      outline: none;
+      background: $dark-blue;
+      width: 6px;
+      height: 6px;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      border: 1px solid $dark-blue;
+      transition: width 0.3s ease-in-out,
+      height 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
+
+      > p {
+        opacity: 0;
+        font-size: 20px;
+        transition: opacity 0.3s ease-in-out;
+        color: $dark-blue;
+      }
+
+      &:hover {
+        @extend %timeButton-expanded;
+      }
+    }
+
+    &.active {
+      .timeButton {
+        @extend %timeButton-expanded;
+      }
+    }
+  }
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+}
+
+.name {
+  position: absolute;
+  top: 10px;
+  font-size: 20px;
+  opacity: 0;
+  text-wrap: nowrap;
+  color: $dark-blue;
+  font-weight: bold;
+}

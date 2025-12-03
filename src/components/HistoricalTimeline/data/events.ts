@@ -1,0 +1,148 @@
+import {IHistoricalEvent} from '../types'
+
+export const events: IHistoricalEvent[] = [
+  {
+    id: 1,
+    date: 1971,
+    year: 1971,
+    type: 'technology',
+    text: 'Introduction of the first commercial microprocessor, the Intel 4004, marking a new era in computing.',
+  },
+  {
+    id: 2,
+    date: 1989,
+    year: 1989,
+    type: 'technology',
+    text: 'Tim Berners-Lee proposes the World Wide Web, laying the foundation for the modern internet.',
+  },
+  {
+    id: 3,
+    date: 2007,
+    year: 2007,
+    type: 'technology',
+    text: 'The first iPhone is released, transforming the smartphone industry and everyday digital life.',
+  },
+  {
+    id: 4,
+    date: 2016,
+    year: 2016,
+    type: 'technology',
+    text: 'AI system AlphaGo defeats a world champion in Go, showcasing the power of modern machine learning.',
+  },
+
+  {
+    id: 5,
+    date: 1957,
+    year: 1957,
+    type: 'space',
+    text: 'Launch of Sputnik 1 by the Soviet Union, the first artificial satellite in Earth orbit.',
+  },
+  {
+    id: 6,
+    date: 1969,
+    year: 1969,
+    type: 'space',
+    text: 'Apollo 11 mission successfully lands humans on the Moon for the first time in history.',
+  },
+  {
+    id: 7,
+    date: 1998,
+    year: 1998,
+    type: 'space',
+    text: 'Assembly of the International Space Station begins, becoming a long-term laboratory in orbit.',
+  },
+  {
+    id: 8,
+    date: 2015,
+    year: 2015,
+    type: 'space',
+    text: 'NASA’s New Horizons spacecraft performs a flyby of Pluto, revealing detailed images of the dwarf planet.',
+  },
+
+  {
+    id: 9,
+    date: 1948,
+    year: 1948,
+    type: 'civil_rights',
+    text: 'The Universal Declaration of Human Rights is adopted by the United Nations General Assembly.',
+  },
+  {
+    id: 10,
+    date: 1964,
+    year: 1964,
+    type: 'civil_rights',
+    text: 'The Civil Rights Act is signed in the United States, prohibiting discrimination based on race, color, religion, sex, or national origin.',
+  },
+  {
+    id: 11,
+    date: 1994,
+    year: 1994,
+    type: 'civil_rights',
+    text: 'The end of apartheid in South Africa and the election of Nelson Mandela as president.',
+  },
+  {
+    id: 12,
+    date: 2017,
+    year: 2017,
+    type: 'civil_rights',
+    text: 'The #MeToo movement gains global attention, sparking conversations about harassment and equality.',
+  },
+
+  {
+    id: 13,
+    date: 1889,
+    year: 1889,
+    type: 'art',
+    text: 'Vincent van Gogh paints “The Starry Night”, which later becomes one of the most iconic works in modern art.',
+  },
+  {
+    id: 14,
+    date: 1937,
+    year: 1937,
+    type: 'art',
+    text: 'Pablo Picasso completes “Guernica”, a powerful anti-war painting and symbol of modern art.',
+  },
+  {
+    id: 15,
+    date: 1967,
+    year: 1967,
+    type: 'art',
+    text: 'The Beatles release “Sgt. Pepper’s Lonely Hearts Club Band”, reshaping popular music and album culture.',
+  },
+  {
+    id: 16,
+    date: 2007,
+    year: 2007,
+    type: 'art',
+    text: 'The rise of digital platforms and social media begins to redefine how culture and creativity are shared worldwide.',
+  },
+
+  {
+    id: 17,
+    date: 1962,
+    year: 1962,
+    type: 'environment',
+    text: 'Rachel Carson publishes “Silent Spring”, raising awareness about the dangers of pesticides and inspiring the environmental movement.',
+  },
+  {
+    id: 18,
+    date: 1970,
+    year: 1970,
+    type: 'environment',
+    text: 'The first Earth Day is celebrated, bringing millions together to support environmental protection.',
+  },
+  {
+    id: 19,
+    date: 1997,
+    year: 1997,
+    type: 'environment',
+    text: 'The Kyoto Protocol is adopted, aiming to reduce greenhouse gas emissions on a global scale.',
+  },
+  {
+    id: 20,
+    date: 2015,
+    year: 2015,
+    type: 'environment',
+    text: 'The Paris Agreement is adopted, uniting countries in a shared effort to address climate change.',
+  },
+]
